@@ -20,6 +20,7 @@ const ListBoxes = () => {
             <TableCell>Cost (INR)</TableCell>
           </TableRow>
         </TableHead>
+        {boxes.length ? (
         <TableBody>
           {boxes.map((box, index) => (
             <TableRow key={index}>
@@ -32,7 +33,16 @@ const ListBoxes = () => {
               <TableCell>₹{box.cost.toFixed(2)}</TableCell>
             </TableRow>
           ))}
-        </TableBody>
+        </TableBody>)
+        :
+        (<TableBody>
+          <TableRow>
+            <TableCell colSpan={5} style={{textAlign: "center",}}>
+              <h3>No data found</h3>
+            </TableCell>
+          </TableRow>
+        </TableBody>)
+        }
       </Table>
     </Paper>
   );
